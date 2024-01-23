@@ -8,8 +8,8 @@ export default function ProductsSection() {
         <ul>
           {productsData.map((product) => {
             return (
-              <li>
-                <ProductCard key={product.id} {...product} />
+              <li key={product.id}>
+                <ProductCard {...product} />
               </li>
             );
           })}
