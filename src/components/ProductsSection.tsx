@@ -4,7 +4,6 @@ export default function ProductsSection() {
   return (
     <main>
       <article>
-        <h1>hi</h1>
         <ul>
           {productsData.map((product) => {
             return (
