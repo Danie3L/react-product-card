@@ -1,21 +1,8 @@
 import { styled } from "styled-components";
 
-const StyledHeader = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const StyledHeading = styled.h1`
-  font-size: 30px;
-  text-transform: uppercase;
+const StyledDiv = styled.div`
   margin-left: 20px;
 `;
-
-const StyledDiv = styled.div`
-  margin-right: 20px;
-`;
-
 const StyledButton = styled.button`
   cursor: pointer;
   width: 100px;
@@ -23,10 +10,9 @@ const StyledButton = styled.button`
   border: 1px solid #ddd;
 `;
 
-export default function Header() {
+export default function Footer() {
   return (
-    <StyledHeader>
-      <StyledHeading>Acme Co.</StyledHeading>
+    <footer>
       <StyledDiv>
         <p>
           Total items: <span>0</span>
@@ -36,6 +22,6 @@ export default function Header() {
         </p>
         <StyledButton>View Cart</StyledButton>
       </StyledDiv>
-    </StyledHeader>
+    </footer>
   );
 }

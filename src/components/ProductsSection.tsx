@@ -1,18 +1,29 @@
 import ProductCard from "./ProductCard";
 import { productsData } from "../data";
+import { styled } from "styled-components";
+
+const StyledList = styled.ul`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 500px;
+`;
+const StyledListElement = styled.li`
+  list-style: none;
+`;
 export default function ProductsSection() {
   return (
     <main>
       <article>
-        <ul>
+        <StyledList>
           {productsData.map((product) => {
             return (
-              <li key={product.id}>
+              <StyledListElement key={product.id}>
                 <ProductCard {...product} />
-              </li>
+              </StyledListElement>
             );
           })}
-        </ul>
+        </StyledList>
       </article>
     </main>
   );
