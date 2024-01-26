@@ -1,7 +1,3 @@
-import widget from "./assets/widget-1.jpg";
-import premiumWidget from "./assets/widget-2.jpg";
-import deluxeWidget from "./assets/widget-3.jpg";
-
 type productsDataProps = {
   title: string;
   price: number;
