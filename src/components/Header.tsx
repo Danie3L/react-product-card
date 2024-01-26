@@ -1,5 +1,8 @@
 import { styled } from "styled-components";
-
+type HeaderProps = {
+  totalItemsCount: number;
+  totalPrice: number;
+};
 const StyledHeader = styled.header`
   display: flex;
   align-items: center;
@@ -23,16 +26,16 @@ const StyledButton = styled.button`
   border: 1px solid #ddd;
 `;
 
-export default function Header() {
+export default function Header({ totalItemsCount, totalPrice }: HeaderProps) {
   return (
     <StyledHeader>
       <StyledHeading>Acme Co.</StyledHeading>
       <StyledDiv>
         <p>
-          Total items: <span>0</span>
+          Total items: <span>{totalItemsCount}</span>
         </p>
         <p>
-          Total price: <span>$0.00</span>
+          Total price: <span>${totalPrice}</span>
         </p>
         <StyledButton>View Cart</StyledButton>
       </StyledDiv>

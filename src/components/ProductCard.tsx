@@ -1,10 +1,11 @@
 import styled from "styled-components";
-
+import { cartProps } from "../App";
 type ProductCardProps = {
   title: string;
   price: number;
   imgSrc: string;
   id?: number;
+  setCart: React.Dispatch<React.SetStateAction<cartProps[]>>;
 };
 
 const StyledSection = styled.section`
@@ -30,13 +31,17 @@ export default function ProductCard({
   title,
   price,
   imgSrc,
+  setCart,
 }: ProductCardProps) {
+  function handleClick() {
+    setCart((prev) => [...prev, { title, totalPrice: price, imgSrc }]);
+  }
   return (
     <StyledSection>
       <h2>{title}</h2>
       <StyledImage src={imgSrc} alt={title} />
       <span>${price}</span>
-      <StyledButton>Add to Cart</StyledButton>
+      <StyledButton onClick={handleClick}>Add to Cart</StyledButton>
     </StyledSection>
   );
 }

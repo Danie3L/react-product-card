@@ -1,5 +1,8 @@
 import { styled } from "styled-components";
-
+type FooterProps = {
+  totalItemsCount: number;
+  totalPrice: number;
+};
 const StyledDiv = styled.div`
   margin-left: 20px;
 `;
@@ -10,15 +13,15 @@ const StyledButton = styled.button`
   border: 1px solid #ddd;
 `;
 
-export default function Footer() {
+export default function Footer({ totalItemsCount, totalPrice }: FooterProps) {
   return (
     <footer>
       <StyledDiv>
         <p>
-          Total items: <span>0</span>
+          Total items: <span>{totalItemsCount}</span>
         </p>
         <p>
-          Total price: <span>$0.00</span>
+          Total price: <span>${totalPrice}</span>
         </p>
         <StyledButton>View Cart</StyledButton>
       </StyledDiv>

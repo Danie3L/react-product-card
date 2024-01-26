@@ -1,7 +1,10 @@
 import ProductCard from "./ProductCard";
 import { productsData } from "../data";
 import { styled } from "styled-components";
-
+import { cartProps } from "../App";
+type ProductsSectionProps = {
+  setCart: React.Dispatch<React.SetStateAction<cartProps[]>>;
+};
 const StyledList = styled.ul`
   display: flex;
   align-items: center;
@@ -11,7 +14,7 @@ const StyledList = styled.ul`
 const StyledListElement = styled.li`
   list-style: none;
 `;
-export default function ProductsSection() {
+export default function ProductsSection({ setCart }: ProductsSectionProps) {
   return (
     <main>
       <article>
@@ -19,7 +22,7 @@ export default function ProductsSection() {
           {productsData.map((product) => {
             return (
               <StyledListElement key={product.id}>
-                <ProductCard {...product} />
+                <ProductCard {...product} setCart={setCart} />
               </StyledListElement>
             );
           })}
