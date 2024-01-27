@@ -33,7 +33,11 @@ function App() {
         totalPrice={totalPrice}
         setIsCartViewActive={setIsCartViewActive}
       />
-      {isCartViewActive ? <Cart /> : <ProductsSection setCart={setCart} />}
+      {isCartViewActive ? (
+        <Cart cart={cart} setCart={setCart} />
+      ) : (
+        <ProductsSection setCart={setCart} />
+      )}
       <Footer totalItemsCount={totalItemsCount} totalPrice={totalPrice} />
     </>
   );
