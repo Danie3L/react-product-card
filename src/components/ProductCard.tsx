@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { cartProps } from "../App";
+import styled from 'styled-components';
+import { cartProps } from '../App';
 type ProductCardProps = {
   title: string;
   price: number;
@@ -34,7 +34,21 @@ export default function ProductCard({
   setCart,
 }: ProductCardProps) {
   function handleClick() {
-    setCart((prev) => [...prev, { title, totalPrice: price, imgSrc }]);
+    setCart((prev) => {
+      if (prev.find((item) => item.title === title)) {
+        return prev.map((item) => {
+          if (item.title === title) {
+            return {
+              ...item,
+              quantity: item.quantity + 1,
+            };
+          } else {
+            return item;
+          }
+        });
+      }
+      return [...prev, { title, totalPrice: price, imgSrc, quantity: 1 }];
+    });
   }
   return (
     <StyledSection>

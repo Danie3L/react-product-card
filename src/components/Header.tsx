@@ -1,7 +1,9 @@
 import { styled } from "styled-components";
+
 type HeaderProps = {
   totalItemsCount: number;
   totalPrice: number;
+  setIsCartViewActive: React.Dispatch<React.SetStateAction<boolean>>;
 };
 const StyledHeader = styled.header`
   display: flex;
@@ -26,7 +28,14 @@ const StyledButton = styled.button`
   border: 1px solid #ddd;
 `;
 
-export default function Header({ totalItemsCount, totalPrice }: HeaderProps) {
+export default function Header({
+  totalItemsCount,
+  totalPrice,
+  setIsCartViewActive,
+}: HeaderProps) {
+  function handleClick() {
+    setIsCartViewActive((prev) => !prev);
+  }
   return (
     <StyledHeader>
       <StyledHeading>Acme Co.</StyledHeading>
@@ -37,7 +46,7 @@ export default function Header({ totalItemsCount, totalPrice }: HeaderProps) {
         <p>
           Total price: <span>${totalPrice}</span>
         </p>
-        <StyledButton>View Cart</StyledButton>
+        <StyledButton onClick={handleClick}>View Cart</StyledButton>
       </StyledDiv>
     </StyledHeader>
   );
