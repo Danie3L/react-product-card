@@ -1,4 +1,3 @@
-import { ChangeEvent } from 'react';
 import { cartProps } from '../App';
 import styled from 'styled-components';
 type CartProps = {
