@@ -1,32 +1,10 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 type HeaderProps = {
   totalItemsCount: number;
   totalPrice: number;
   setIsCartViewActive: React.Dispatch<React.SetStateAction<boolean>>;
 };
-const StyledHeader = styled.header`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const StyledHeading = styled.h1`
-  font-size: 30px;
-  text-transform: uppercase;
-  margin-left: 20px;
-`;
-
-const StyledDiv = styled.div`
-  margin-right: 20px;
-`;
-
-const StyledButton = styled.button`
-  cursor: pointer;
-  width: 100px;
-  height: 30px;
-  border: 1px solid #ddd;
-`;
 
 export default function Header({
   totalItemsCount,
@@ -51,3 +29,25 @@ export default function Header({
     </StyledHeader>
   );
 }
+const StyledHeader = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
+const StyledHeading = styled.h1`
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-left: 20px;
+`;
+
+const StyledDiv = styled.div`
+  margin-right: 20px;
+`;
+
+const StyledButton = styled.button`
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  border: 1px solid #ddd;
+`;

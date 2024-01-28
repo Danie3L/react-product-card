@@ -7,40 +7,6 @@ type CartProps = {
 type EventType = {
   target: HTMLSelectElement;
 };
-const imgStyles = {
-  width: '100px',
-  height: '100px',
-};
-
-const StyledList = styled.ul`
-  border-bottom: 2px solid #ddd;
-`;
-const StyledListItem = styled.li`
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-`;
-
-const StyledDiv = styled.div`
-  display: flex;
-  align-items: center;
-  width: 70%;
-`;
-
-const StyledHeading = styled.h1`
-  flex-basis: 30%;
-  margin-left: 20px;
-`;
-
-const StyledParagraph = styled.p<{ $margin?: boolean }>`
-  flex-basis: 20%;
-  font-size: 20px;
-  margin-left: ${(props) => (props.$margin ? '60px' : '0px')};
-`;
-const StyledSelect = styled.select`
-  flex-basis: 20%;
-  height: 30px;
-`;
 
 function renderSelect() {
   return Array.from({ length: 20 }, (_, i) => (
@@ -94,3 +60,36 @@ export default function Cart({ cart, setCart }: CartProps) {
     </section>
   );
 }
+const imgStyles = {
+  width: '100px',
+  height: '100px',
+};
+const StyledList = styled.ul`
+  border-bottom: 2px solid #ddd;
+`;
+const StyledListItem = styled.li`
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+`;
+
+const StyledDiv = styled.div`
+  display: flex;
+  align-items: center;
+  width: 70%;
+`;
+
+const StyledHeading = styled.h1`
+  flex-basis: 30%;
+  margin-left: 20px;
+`;
+
+const StyledParagraph = styled.p<{ $margin?: boolean }>`
+  flex-basis: 20%;
+  font-size: 20px;
+  margin-left: ${(props) => (props.$margin ? '60px' : '0px')};
+`;
+const StyledSelect = styled.select`
+  flex-basis: 20%;
+  height: 30px;
+`;

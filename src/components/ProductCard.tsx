@@ -8,25 +8,6 @@ type ProductCardProps = {
   setCart: React.Dispatch<React.SetStateAction<cartProps[]>>;
 };
 
-const StyledSection = styled.section`
-  display: flex;
-  flex-direction: column;
-`;
-
-const StyledImage = styled.img`
-  width: 200px;
-  height: 200px;
-  margin: 10px 0;
-`;
-
-const StyledButton = styled.button`
-  cursor: pointer;
-  width: 100px;
-  height: 30px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-`;
-
 export default function ProductCard({
   title,
   price,
@@ -59,3 +40,21 @@ export default function ProductCard({
     </StyledSection>
   );
 }
+const StyledSection = styled.section`
+  display: flex;
+  flex-direction: column;
+`;
+
+const StyledImage = styled.img`
+  width: 200px;
+  height: 200px;
+  margin: 10px 0;
+`;
+
+const StyledButton = styled.button`
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+`;
