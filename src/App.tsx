@@ -12,7 +12,7 @@ export type cartProps = {
 };
 
 function deriveTotalItemsCount(data: cartProps[]) {
-  return data.length;
+  return Number(data.reduce((acc, curr) => acc + curr.quantity, 0));
 }
 
 function deriveTotalPrice(data: cartProps[]) {
