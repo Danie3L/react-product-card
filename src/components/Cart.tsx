@@ -1,36 +1,12 @@
 import { cartProps } from '../App';
 import styled from 'styled-components';
+import CartSelect from './CartSelect';
 type CartProps = {
   cart: cartProps[];
   setCart: React.Dispatch<React.SetStateAction<cartProps[]>>;
 };
-type EventType = {
-  target: HTMLSelectElement;
-};
-
-function renderSelect() {
-  return Array.from({ length: 20 }, (_, i) => (
-    <option key={i} value={i + 1}>
-      {i + 1}
-    </option>
-  ));
-}
 
 export default function Cart({ cart, setCart }: CartProps) {
-  function handleSelect(title: string, e: EventType) {
-    setCart((prev) => {
-      return prev.map((item) => {
-        if (item.title === title) {
-          return {
-            ...item,
-            quantity: Number(e.target.value),
-          };
-        } else {
-          return item;
-        }
-      });
-    });
-  }
   return (
     <section>
       <StyledList>
@@ -41,14 +17,7 @@ export default function Cart({ cart, setCart }: CartProps) {
               <StyledDiv>
                 <StyledHeading>{product.title}</StyledHeading>
                 <StyledParagraph>Price: {product.totalPrice}</StyledParagraph>
-                <StyledSelect
-                  onChange={(e) => handleSelect(product.title, e)}
-                  name='quantity'
-                  id=''
-                >
-                  <option value=''>{product.quantity}</option>
-                  {renderSelect()}
-                </StyledSelect>
+                <CartSelect product={product} setCart={setCart} />
                 <StyledParagraph $margin>
                   Total Price: $
                   {(product.totalPrice * product.quantity).toFixed(2)}
@@ -89,8 +58,4 @@ const StyledParagraph = styled.p<{ $margin?: boolean }>`
   flex-basis: 20%;
   font-size: 20px;
   margin-left: ${(props) => (props.$margin ? '60px' : '0px')};
-`;
-const StyledSelect = styled.select`
-  flex-basis: 20%;
-  height: 30px;
 `;
