@@ -17,7 +17,9 @@ function deriveTotalItemsCount(data: cartProps[]) {
 
 function deriveTotalPrice(data: cartProps[]) {
   return Number(
-    data.reduce((acc, curr) => acc + curr.totalPrice, 0).toFixed(2),
+    data
+      .reduce((acc, curr) => acc + curr.totalPrice * curr.quantity, 0)
+      .toFixed(2),
   );
 }
 
