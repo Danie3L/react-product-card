@@ -50,7 +50,8 @@ export default function Cart({ cart, setCart }: CartProps) {
                   {renderSelect()}
                 </StyledSelect>
                 <StyledParagraph $margin>
-                  Total Price: ${product.totalPrice * product.quantity}
+                  Total Price: $
+                  {(product.totalPrice * product.quantity).toFixed(2)}
                 </StyledParagraph>
               </StyledDiv>
             </StyledListItem>
